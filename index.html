@@ -1,879 +1,1021 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gaurav Balpande - DevOps Engineer | Azure | AWS | Kubernetes | Docker | CI/CD">
-    <meta name="author" content="Gaurav Balpande">
-    <meta name="keywords" content="DevOps, Azure, AWS, Kubernetes, Docker, Jenkins, CI/CD, Android Development">
-    <title>Gaurav Balpande | DevOps Engineer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #0066ff;
-            --secondary: #00d4ff;
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
-            --accent: #ff6b6b;
-            --success: #51cf66;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--secondary);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            color: var(--secondary);
-        }
-
-        .hero {
-            padding: 120px 20px 80px;
-            text-align: center;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInDown 1s ease;
-        }
-
-        .hero .title {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: white;
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: 2px solid white;
-        }
-
-        .btn:hover {
-            background: transparent;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 80px 20px;
-        }
-
-        .section-dark {
-            background: var(--dark);
-            color: white;
-        }
-
-        .section-light {
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem 1rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
-            border-color: var(--secondary);
-            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.3);
-        }
-
-        .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .skill-card h3 {
-            font-size: 1.2rem;
-            color: var(--secondary);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border-left: 5px solid var(--primary);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .project-header {
-            padding: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .project-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-category {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .project-body {
-            padding: 1.5rem;
-        }
-
-        .project-description {
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tag {
-            background: #e3f2fd;
-            color: var(--primary);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .cert-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .cert-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--secondary);
-            transform: translateY(-5px);
-        }
-
-        .cert-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .cert-card h3 {
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .education-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid var(--success);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .education-card h3 {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-info {
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-year {
-            color: var(--success);
-            font-weight: bold;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .contact-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--secondary);
-            transform: scale(1.05);
-        }
-
-        .contact-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-card h3 {
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-card a {
-            color: white;
-            text-decoration: none;
-            word-break: break-all;
-        }
-
-        .contact-card a:hover {
-            color: var(--secondary);
-        }
-
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .title {
-                font-size: 1.2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gaurav Balpande — Cloud & DevOps Engineer specializing in AWS, Kubernetes, Terraform, GitOps and MLOps. Builder of AuctionXI, a cloud-native football auction platform.">
+<meta name="author" content="Gaurav Balpande">
+<meta name="keywords" content="DevOps, Cloud Engineer, AWS, Kubernetes, Terraform, ArgoCD, GitOps, Go, MLOps, Platform Engineering">
+<title>Gaurav Balpande — Cloud &amp; DevOps Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e14;
+    --bg-soft:#0d131c;
+    --surface:#121927;
+    --surface-2:#171f30;
+    --border:#222c3f;
+    --border-soft:#1a2335;
+    --text:#e8edf4;
+    --text-dim:#8a96ab;
+    --text-faint:#5b6679;
+    --accent:#4ddcc7;
+    --accent-dim:#2f7d74;
+    --amber:#f0b749;
+    --rose:#f4768c;
+    --mono:'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+    --sans:'Inter', -apple-system, system-ui, sans-serif;
+    --max:1140px;
+    --radius:12px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:var(--sans);
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  a{ color:inherit; }
+  img{ max-width:100%; }
+
+  ::selection{ background:var(--accent); color:#06100f; }
+
+  :focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 24px; }
+
+  /* ===================== NAV ===================== */
+  .topnav{
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    background:rgba(10,14,20,0.72);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border-soft);
+  }
+  .topnav .wrap{
+    height:64px; display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    font-family:var(--mono); font-weight:600; font-size:.95rem;
+    color:var(--text); letter-spacing:.02em;
+  }
+  .brand span{ color:var(--accent); }
+  .brand .cursor{
+    display:inline-block; width:8px; height:1.1em; background:var(--accent);
+    margin-left:4px; vertical-align:middle; animation:blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  .nav-links{
+    display:flex; align-items:center; gap:28px; list-style:none;
+    font-family:var(--mono); font-size:.85rem;
+  }
+  .nav-links a{
+    text-decoration:none; color:var(--text-dim);
+    transition:color .2s ease;
+    position:relative;
+  }
+  .nav-links a:hover{ color:var(--accent); }
+  .nav-links .nav-cta{
+    color:var(--bg); background:var(--accent);
+    padding:8px 16px; border-radius:6px; font-weight:600;
+  }
+  .nav-links .nav-cta:hover{ color:var(--bg); background:#6be6d4; }
+
+  .nav-toggle{
+    display:none; flex-direction:column; gap:5px; background:none; border:none;
+    cursor:pointer; padding:8px;
+  }
+  .nav-toggle span{ width:22px; height:2px; background:var(--text); display:block; }
+
+  /* ===================== HERO ===================== */
+  .hero{
+    min-height:100vh; display:flex; align-items:center;
+    padding:110px 0 60px;
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns:1.1fr 1fr; gap:56px; align-items:center;
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:.8rem; color:var(--accent);
+    letter-spacing:.08em; text-transform:lowercase; margin-bottom:14px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:''; display:inline-block; width:8px; height:8px; border-radius:50%;
+    background:var(--accent); box-shadow:0 0 0 4px rgba(77,220,199,.15);
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.2rem);
+    font-weight:800; line-height:1.05; letter-spacing:-0.02em;
+    margin-bottom:14px;
+  }
+  .hero h1 .accent{ color:var(--accent); }
+  .role-line{
+    font-family:var(--mono); font-size:clamp(.95rem,2vw,1.15rem);
+    color:var(--amber); margin-bottom:22px; letter-spacing:.01em;
+  }
+  .role-line .sep{ color:var(--text-faint); margin:0 8px; }
+  .hero p.lead{
+    font-size:1.05rem; color:var(--text-dim); max-width:520px; margin-bottom:32px;
+  }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+
+  .btn{
+    font-family:var(--mono); font-size:.85rem; font-weight:600;
+    padding:13px 24px; border-radius:8px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid transparent; transition:all .2s ease;
+  }
+  .btn-primary{ background:var(--accent); color:#06100f; }
+  .btn-primary:hover{ background:#6be6d4; transform:translateY(-2px); }
+  .btn-outline{ border-color:var(--border); color:var(--text); }
+  .btn-outline:hover{ border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
+
+  /* ---- terminal ---- */
+  .terminal{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(0,0,0,.6), 0 0 0 1px rgba(77,220,199,.04);
+  }
+  .terminal-bar{
+    display:flex; align-items:center; gap:8px;
+    padding:12px 16px; border-bottom:1px solid var(--border);
+    background:var(--surface-2);
+  }
+  .terminal-bar .dot{ width:11px; height:11px; border-radius:50%; }
+  .dot-r{ background:#f4768c; } .dot-y{ background:#f0b749; } .dot-g{ background:#4ddcc7; }
+  .terminal-bar .path{
+    margin-left:10px; font-family:var(--mono); font-size:.78rem; color:var(--text-faint);
+  }
+  .terminal-body{
+    font-family:var(--mono); font-size:.82rem; line-height:1.9;
+    padding:18px 18px 22px; min-height:280px; max-height:340px;
+    overflow:hidden; color:var(--text-dim);
+  }
+  .terminal-body .line{ white-space:pre-wrap; word-break:break-word; }
+  .terminal-body .cmd{ color:var(--text); }
+  .terminal-body .cmd::before{ content:'$ '; color:var(--accent); }
+  .terminal-body .ok{ color:var(--accent); }
+  .terminal-body .out{ color:var(--text-faint); }
+  .terminal-body .cur{
+    display:inline-block; width:7px; height:1em; background:var(--accent);
+    vertical-align:text-bottom; animation:blink 1s steps(1) infinite;
+  }
+
+  /* ===================== SECTIONS ===================== */
+  .section{ padding:100px 0; border-top:1px solid var(--border-soft); }
+  .section-head{ margin-bottom:48px; max-width:680px; }
+  .section-head .eyebrow{ margin-bottom:10px; }
+  .section-head h2{
+    font-size:clamp(1.8rem,4vw,2.6rem); font-weight:800; letter-spacing:-.01em;
+  }
+  .section-head p{ color:var(--text-dim); margin-top:12px; font-size:1rem; }
+
+  /* ===================== ABOUT ===================== */
+  .about-grid{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:48px; align-items:start;
+  }
+  .about-grid p{ color:var(--text-dim); font-size:1.02rem; margin-bottom:16px; }
+  .about-grid p strong{ color:var(--text); font-weight:600; }
+
+  .whoami{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    font-family:var(--mono); font-size:.85rem; overflow:hidden;
+  }
+  .whoami-head{
+    padding:12px 16px; border-bottom:1px solid var(--border); background:var(--surface-2);
+    color:var(--text-faint); font-size:.78rem;
+  }
+  .whoami dl{ padding:18px 18px 20px; display:grid; grid-template-columns:auto 1fr; gap:10px 16px; }
+  .whoami dt{ color:var(--text-faint); }
+  .whoami dd{ color:var(--text); }
+  .whoami dd.tags{ color:var(--accent); }
+  .whoami .status-dot{
+    display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--accent);
+    margin-right:8px; box-shadow:0 0 0 3px rgba(77,220,199,.15);
+  }
+
+  /* ===================== SKILLS ===================== */
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:18px;
+  }
+  .skill-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:22px; transition:border-color .2s ease, transform .2s ease;
+  }
+  .skill-card:hover{ border-color:var(--accent-dim); transform:translateY(-3px); }
+  .skill-card .path{
+    font-family:var(--mono); font-size:.8rem; color:var(--accent); margin-bottom:6px;
+  }
+  .skill-card h3{ font-size:1.05rem; font-weight:700; margin-bottom:14px; }
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .pill{
+    font-family:var(--mono); font-size:.74rem; color:var(--text-dim);
+    border:1px solid var(--border); border-radius:5px; padding:4px 9px;
+    background:var(--bg-soft);
+  }
+
+  /* ===================== EXPERIENCE ===================== */
+  .exp-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:32px;
+  }
+  .exp-head{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:20px;
+    flex-wrap:wrap; margin-bottom:22px; padding-bottom:22px; border-bottom:1px solid var(--border);
+  }
+  .exp-head h3{ font-size:1.3rem; font-weight:700; }
+  .exp-head .company{ color:var(--accent); font-family:var(--mono); font-size:.9rem; margin-top:4px; }
+  .exp-head .dates{
+    font-family:var(--mono); font-size:.8rem; color:var(--text-faint);
+    border:1px solid var(--border); border-radius:6px; padding:6px 12px; white-space:nowrap;
+  }
+  .exp-list{ list-style:none; display:grid; gap:12px; margin-bottom:24px; }
+  .exp-list li{
+    display:flex; gap:10px; color:var(--text-dim); font-size:.96rem;
+  }
+  .exp-list li::before{ content:'›'; color:var(--accent); font-family:var(--mono); font-weight:700; flex-shrink:0; }
+  .exp-list strong{ color:var(--text); }
+
+  .metric-row{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:22px; }
+  .metric{
+    font-family:var(--mono); font-size:.78rem; color:var(--amber);
+    border:1px solid rgba(240,183,73,.25); background:rgba(240,183,73,.06);
+    border-radius:6px; padding:6px 12px;
+  }
+
+  /* ===================== PROJECTS ===================== */
+  .flagship{
+    background:linear-gradient(165deg, var(--surface) 0%, var(--bg-soft) 100%);
+    border:1px solid var(--border); border-radius:var(--radius);
+    padding:40px; margin-bottom:60px;
+  }
+  .flagship-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:24px;
+    flex-wrap:wrap; margin-bottom:18px;
+  }
+  .flagship-top h3{ font-size:clamp(1.6rem,3vw,2.1rem); font-weight:800; }
+  .flagship-top .tag-flagship{
+    font-family:var(--mono); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--bg); background:var(--accent); padding:6px 12px; border-radius:5px; font-weight:700;
+    white-space:nowrap;
+  }
+  .flagship p.desc{ color:var(--text-dim); max-width:760px; margin-bottom:28px; font-size:1.02rem; }
+
+  .feature-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:12px;
+    margin-bottom:34px;
+  }
+  .feature-item{
+    font-size:.9rem; color:var(--text-dim); display:flex; gap:10px; align-items:flex-start;
+    padding:10px 0; border-bottom:1px solid var(--border-soft);
+  }
+  .feature-item::before{ content:'✓'; color:var(--accent); font-weight:700; flex-shrink:0; }
+
+  .pipeline-label{
+    font-family:var(--mono); font-size:.78rem; color:var(--text-faint);
+    margin-bottom:14px; letter-spacing:.04em;
+  }
+  .pipeline{
+    display:flex; gap:0; overflow-x:auto; padding-bottom:14px; margin-bottom:30px;
+    scrollbar-width:thin;
+  }
+  .pstage{
+    flex:0 0 188px; background:var(--bg-soft); border:1px solid var(--border);
+    border-radius:9px; padding:16px; min-height:118px;
+  }
+  .pstage .num{
+    font-family:var(--mono); font-size:.72rem; color:var(--amber); letter-spacing:.06em;
+  }
+  .pstage h4{ font-size:.95rem; font-weight:700; margin:8px 0 6px; }
+  .pstage p{ font-size:.8rem; color:var(--text-dim); line-height:1.5; }
+  .pconnector{
+    flex:0 0 36px; align-self:center; height:2px;
+    background:repeating-linear-gradient(90deg, var(--accent) 0 8px, transparent 8px 16px);
+    background-size:32px 2px;
+    animation:flow 1s linear infinite;
+  }
+  @keyframes flow{ to{ background-position:32px 0; } }
+
+  .tech-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px; }
+  .tech-tag{
+    font-family:var(--mono); font-size:.76rem; color:var(--accent);
+    border:1px solid rgba(77,220,199,.25); background:rgba(77,220,199,.06);
+    border-radius:5px; padding:5px 11px;
+  }
+
+  /* other projects grid */
+  .projects-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:20px;
+  }
+  .project-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:26px; display:flex; flex-direction:column; transition:border-color .2s ease, transform .2s ease;
+  }
+  .project-card:hover{ border-color:var(--accent-dim); transform:translateY(-3px); }
+  .project-card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:10px;
+  }
+  .project-card h4{ font-size:1.08rem; font-weight:700; }
+  .badge{
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.06em; text-transform:uppercase;
+    border:1px solid var(--accent-dim); color:var(--accent); border-radius:5px;
+    padding:4px 8px; white-space:nowrap;
+  }
+  .project-card p.desc{ color:var(--text-dim); font-size:.9rem; margin-bottom:14px; flex-grow:1; }
+  .project-card .metric-row{ margin-bottom:14px; }
+  .project-card .metric{ font-size:.72rem; }
+  .project-card .tech-tags{ margin-bottom:18px; }
+  .project-card .tech-tag{ font-size:.7rem; }
+  .project-link{
+    font-family:var(--mono); font-size:.82rem; color:var(--text); text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px; border-top:1px solid var(--border);
+    padding-top:14px; margin-top:auto; transition:color .2s ease;
+  }
+  .project-link:hover{ color:var(--accent); }
+  .project-link svg{ flex-shrink:0; transition:transform .2s ease; }
+  .project-link:hover svg{ transform:translateX(3px); }
+
+  /* ===================== EDU + CERTS ===================== */
+  .edu-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:20px;
+  }
+  .edu-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:28px; border-left:3px solid var(--accent);
+  }
+  .edu-card .path{ font-family:var(--mono); font-size:.78rem; color:var(--text-faint); margin-bottom:10px; }
+  .edu-card h3{ font-size:1.1rem; font-weight:700; margin-bottom:6px; }
+  .edu-card p{ color:var(--text-dim); font-size:.92rem; }
+  .edu-card .yr{ font-family:var(--mono); color:var(--amber); font-size:.85rem; margin-top:8px; display:block; }
+
+  /* ===================== FOOTER / CONTACT ===================== */
+  .contact-section{ border-top:1px solid var(--border-soft); padding:100px 0 50px; }
+  .contact-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:18px; margin-bottom:60px;
+  }
+  .contact-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:24px; text-align:left; transition:border-color .2s ease, transform .2s ease;
+    text-decoration:none; display:block;
+  }
+  .contact-card:hover{ border-color:var(--accent); transform:translateY(-3px); }
+  .contact-card .label{
+    font-family:var(--mono); font-size:.74rem; color:var(--text-faint);
+    text-transform:lowercase; margin-bottom:8px; letter-spacing:.04em;
+  }
+  .contact-card .value{ font-size:.98rem; font-weight:600; color:var(--text); word-break:break-word; }
+  .contact-card:hover .value{ color:var(--accent); }
+
+  .footer-bottom{
+    border-top:1px solid var(--border-soft); padding-top:28px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+    font-family:var(--mono); font-size:.78rem; color:var(--text-faint);
+  }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width:860px){
+    .hero .wrap{ grid-template-columns:1fr; gap:40px; }
+    .hero{ padding-top:96px; min-height:auto; }
+    .about-grid{ grid-template-columns:1fr; }
+    .nav-links{
+      position:absolute; top:64px; left:0; right:0; flex-direction:column;
+      align-items:flex-start; background:var(--bg-soft); border-bottom:1px solid var(--border-soft);
+      padding:18px 24px; gap:16px; display:none;
+    }
+    .nav-links.open{ display:flex; }
+    .nav-links .nav-cta{ display:inline-block; }
+    .nav-toggle{ display:flex; }
+  }
+  @media (max-width:600px){
+    .section{ padding:70px 0; }
+    .flagship{ padding:26px; }
+    .exp-card{ padding:24px; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+  }
+</style>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <div class="logo">GB</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="topnav">
+    <div class="wrap">
+      <div class="brand">gaurav<span>@</span>devops<span class="cursor"></span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">--about</a></li>
+        <li><a href="#skills">--skills</a></li>
+        <li><a href="#experience">--experience</a></li>
+        <li><a href="#projects">--projects</a></li>
+        <li><a href="#contact" class="nav-cta">--contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="home">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">whoami</div>
+        <h1>Gaurav <span class="accent">Balpande</span></h1>
+        <div class="role-line">Cloud &amp; DevOps Engineer<span class="sep">/</span>Platform Engineering<span class="sep">/</span>MLOps</div>
+        <p class="lead">
+          I design cloud infrastructure, automate deployments, and ship distributed systems
+          that stay up. Most recently I built and shipped <strong style="color:var(--text)">AuctionXI</strong> —
+          a real-time auction platform running on Kubernetes with a full GitOps pipeline.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://auctionxi.online/" target="_blank" class="btn btn-primary">AuctionXI Live ↗</a>
+          <a href="#projects" class="btn btn-outline">View Projects</a>
+          <a href="https://github.com/gauravbalpande" target="_blank" class="btn btn-outline">GitHub</a>
+          <a href="https://www.linkedin.com/in/gaurav-mukunda-balpande-9b6717257" target="_blank" class="btn btn-outline">LinkedIn</a>
         </div>
-    </nav>
+      </div>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Gaurav Balpande</h1>
-            <p class="title">DevOps Engineer | Cloud Architect | LLMOps Enthusiast</p>
-            <p>Passionate about automation, container orchestration, and deploying scalable AI workflows. Experienced in AWS, Azure, Kubernetes, Docker, and CI/CD pipelines.</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn">View Projects</a>
-                <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                <a href="https://github.com/gauravbalpande" class="btn btn-secondary" target="_blank">GitHub</a>
-            </div>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+          <span class="path">gaurav@devops: ~/auctionxi</span>
         </div>
-    </section>
+        <div class="terminal-body" id="termBody"></div>
+      </div>
+    </div>
+  </header>
 
-    <section id="about" class="section-light">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="education-card fade-in">
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 2rem;">
-                    I'm a passionate learner focused on DevOps and LLMOps, with hands-on experience in automation, container orchestration, and deploying scalable AI workflows using tools like Docker, Kubernetes, and CI/CD pipelines. I'm also exploring LLMOps to integrate large language models into production-ready systems. In addition, I have experience in Android development, allowing me to contribute across both backend infrastructure and mobile platforms.
-                </p>
-                <h3>🎓 Education</h3>
-                <p class="education-info"><strong>Shri Guru Gobind Singhji Institute of Engineering and Technology</strong></p>
-                <p class="education-info">B.Tech in Computer Science</p>
-                <p class="education-year">2022 - 2026</p>
-            </div>
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">~/about</div>
+        <h2>About me</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>
+            I'm a final-year Computer Science student focused on <strong>Cloud Computing,
+            DevOps, Platform Engineering, and MLOps</strong>. Over the last few months I've been
+            building production-style cloud-native applications on <strong>AWS</strong>, automating
+            infrastructure with <strong>Terraform</strong>, and running everything through
+            <strong>Kubernetes</strong> and <strong>GitOps pipelines with ArgoCD</strong>.
+          </p>
+          <p>
+            Lately I've also picked up <strong>Go</strong> — writing backend services with Gin,
+            JWT auth, and a clean repository/service-layer architecture — and used it to build
+            my flagship project, <strong>AuctionXI</strong>. On the side, I'm exploring
+            <strong>MLOps</strong> (MLflow, DVC, Prometheus/Grafana) and the basics of
+            <strong>LLMOps</strong> — RAG systems and containerized AI workloads.
+          </p>
+          <p>
+            What I enjoy most is the systems side of engineering: designing infrastructure
+            that's reproducible, automating the boring parts of deployment, and building
+            services that hold up under real traffic.
+          </p>
         </div>
-    </section>
-
-    <section id="skills" class="section-dark">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">☁️</div>
-                    <h3>AWS</h3>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">☁️</div>
-                    <h3>Azure</h3>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🐳</div>
-                    <h3>Docker</h3>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">☸️</div>
-                    <h3>Kubernetes</h3>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🔧</div>
-                    <h3>Jenkins</h3>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">☕</div>
-                    <h3>Java</h3>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🤖</div>
-                    <h3>Android Studio</h3>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🔄</div>
-                    <h3>CI/CD</h3>
-                </div>
-            </div>
+        <div class="whoami">
+          <div class="whoami-head">~/about/whoami.txt</div>
+          <dl>
+            <dt>status</dt><dd><span class="status-dot"></span>open to internships &amp; full-time roles</dd>
+            <dt>location</dt><dd>Nagpur, India · open to remote / relocation</dd>
+            <dt>education</dt><dd>B.Tech CS, SGGS Institute of Engineering &amp; Technology</dd>
+            <dt>grad</dt><dd>2022 – 2026</dd>
+            <dt>focus</dt><dd class="tags">AWS · Kubernetes · Terraform · ArgoCD · Go</dd>
+            <dt>currently</dt><dd>building &amp; shipping AuctionXI</dd>
+          </dl>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="projects" class="section-light">
-        <div class="container">
-            <h2 class="section-title">DevOps & Cloud Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3>Secure AWS VPC Architecture</h3>
-                        <p class="project-category">AWS | Networking | Security</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Implemented a production-ready AWS VPC with private subnets, route tables, security groups, and network ACLs. Configured VPC peering, flow logs, and VPC endpoints for secure S3 access.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">AWS VPC</span>
-                            <span class="tag">Security Groups</span>
-                            <span class="tag">Route Tables</span>
-                            <span class="tag">VPC Peering</span>
-                        </div>
-                    </div>
-                </div>
+  <!-- ===================== SKILLS ===================== -->
+  <section id="skills" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">~/skills</div>
+        <h2>Technical skills</h2>
+        <p>Organized the way I actually use them — by layer of the stack.</p>
+      </div>
+      <div class="skills-grid">
 
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3>End-to-End CI/CD Pipeline</h3>
-                        <p class="project-category">AWS | Jenkins | Docker</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Deployed a Zoom-like website with automated Jenkins pipeline, integrating GitHub, DockerHub, and AWS. Implemented continuous integration and deployment workflow.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Jenkins</span>
-                            <span class="tag">Docker Hub</span>
-                            <span class="tag">GitHub</span>
-                            <span class="tag">AWS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3>AWS CodePipeline Implementation</h3>
-                        <p class="project-category">AWS | CI/CD | DevOps</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Built complete CI/CD pipeline using AWS native services including CodeArtifact, CodeBuild, CodePipeline, and CodeDeploy for automated application deployment.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">AWS EC2</span>
-                            <span class="tag">CodePipeline</span>
-                            <span class="tag">CodeBuild</span>
-                            <span class="tag">CodeDeploy</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3>Static Website on Amazon S3</h3>
-                        <p class="project-category">AWS | S3 | Web Hosting</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Hosted a static website on Amazon S3 with CloudFront distribution for global content delivery and Route 53 for DNS management.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Amazon S3</span>
-                            <span class="tag">CloudFront</span>
-                            <span class="tag">Route 53</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3>Data Visualization with QuickSight</h3>
-                        <p class="project-category">AWS | Analytics | BI</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Created interactive dashboards using Amazon QuickSight for business intelligence and data visualization, connecting to multiple data sources.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">QuickSight</span>
-                            <span class="tag">Data Analytics</span>
-                            <span class="tag">Dashboards</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3>Cloud Security with AWS IAM</h3>
-                        <p class="project-category">AWS | Security | IAM</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Implemented comprehensive IAM policies, roles, and permission boundaries for secure AWS resource access and user management.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">AWS IAM</span>
-                            <span class="tag">Security</span>
-                            <span class="tag">Policies</span>
-                            <span class="tag">RBAC</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3>Chatbot with Amazon Lex</h3>
-                        <p class="project-category">AWS | AI/ML | Chatbot</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Built an intelligent chatbot using Amazon Lex with natural language understanding, integrating with Lambda functions for backend processing.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Amazon Lex</span>
-                            <span class="tag">Lambda</span>
-                            <span class="tag">NLU</span>
-                            <span class="tag">Chatbot</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-card">
+          <div class="path">~/skills/cloud</div>
+          <h3>Cloud Engineering (AWS &amp; Azure)</h3>
+          <div class="pill-row">
+            <span class="pill">EC2</span><span class="pill">ECR</span><span class="pill">IAM</span>
+            <span class="pill">Route 53</span><span class="pill">S3</span><span class="pill">DynamoDB</span>
+            <span class="pill">Lambda</span><span class="pill">SNS</span><span class="pill">API Gateway</span>
+            <span class="pill">Cognito</span><span class="pill">CloudFormation</span><span class="pill">Azure Fundamentals</span>
+          </div>
         </div>
-    </section>
 
-    <section id="android-projects" class="section-dark">
-        <div class="container">
-            <h2 class="section-title">Android Development Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3>Movie Discovery App</h3>
-                        <p class="project-category">Android | Java | REST API</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Developed a movie app using TMDB API providing real-time information about recent movies, with features like search, favorites, and detailed movie information.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Java</span>
-                            <span class="tag">Android Studio</span>
-                            <span class="tag">REST API</span>
-                            <span class="tag">MVVM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3>Quiz Application</h3>
-                        <p class="project-category">Android | Java | SQLite</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Created an interactive quiz app with multiple categories, timer functionality, score tracking, and local database for storing questions and results.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Android</span>
-                            <span class="tag">SQLite</span>
-                            <span class="tag">Java</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3>Real-time Chat Application</h3>
-                        <p class="project-category">Android | Firebase | Real-time</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Built a real-time messaging app using Firebase for backend, featuring instant messaging, user authentication, and message notifications.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Firebase</span>
-                            <span class="tag">Real-time DB</span>
-                            <span class="tag">Authentication</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3>Personal Journal App</h3>
-                        <p class="project-category">Android | Room DB | MVVM</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Developed a journal app with Room database for local storage, featuring mood tracking, entries management, and search functionality.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Room DB</span>
-                            <span class="tag">MVVM</span>
-                            <span class="tag">LiveData</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3>Notes Taking App</h3>
-                        <p class="project-category">Android | SQLite | Material Design</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Created a feature-rich notes app with categories, search, rich text editing, and cloud backup functionality using Material Design principles.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Material Design</span>
-                            <span class="tag">SQLite</span>
-                            <span class="tag">Cloud Sync</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3>Real-time Weather App</h3>
-                        <p class="project-category">Android | API Integration | GPS</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Built a weather app with real-time updates using weather API, GPS location tracking, and forecast visualization with charts.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Weather API</span>
-                            <span class="tag">GPS</span>
-                            <span class="tag">Charts</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-card">
+          <div class="path">~/skills/devops-cicd</div>
+          <h3>DevOps &amp; CI/CD</h3>
+          <div class="pill-row">
+            <span class="pill">GitHub Actions</span><span class="pill">Jenkins</span><span class="pill">Docker</span>
+            <span class="pill">ArgoCD</span><span class="pill">GitOps</span><span class="pill">IaC</span>
+            <span class="pill">Continuous Integration</span><span class="pill">Continuous Deployment</span>
+          </div>
         </div>
-    </section>
 
-    <section id="certifications" class="section-light">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            <div class="cert-grid">
-                <div class="cert-card fade-in">
-                    <div class="cert-icon">🎓</div>
-                    <h3>Microsoft Certified: Azure Fundamentals</h3>
-                    <p style="color: #666; margin-top: 0.5rem;">Microsoft</p>
-                </div>
-            </div>
+        <div class="skill-card">
+          <div class="path">~/skills/kubernetes</div>
+          <h3>Kubernetes</h3>
+          <div class="pill-row">
+            <span class="pill">Pods</span><span class="pill">Deployments</span><span class="pill">Services</span>
+            <span class="pill">ConfigMaps</span><span class="pill">Secrets</span><span class="pill">Ingress</span>
+            <span class="pill">Namespaces</span><span class="pill">PVs</span><span class="pill">Helm</span>
+            <span class="pill">Cert-Manager</span><span class="pill">NGINX Ingress</span><span class="pill">Networking &amp; debugging</span>
+          </div>
         </div>
-    </section>
 
-    <section id="contact" class="section-dark">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-card fade-in">
-                    <div class="contact-icon">📧</div>
-                    <h3>Email</h3>
-                    <a href="mailto:gauravbalpande18@gmail.com">gauravbalpande18@gmail.com</a>
-                </div>
-                <div class="contact-card fade-in">
-                    <div class="contact-icon">📱</div>
-                    <h3>Phone</h3>
-                    <a href="tel:+919356603720">+91 9356603720</a>
-                </div>
-                <div class="contact-card fade-in">
-                    <div class="contact-icon">💼</div>
-                    <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/gaurav-mukunda-balpande-9b6717257" target="_blank">linkedin.com/in/gaurav-mukunda-balpande-9b6717257</a>
-                </div>
-                <div class="contact-card fade-in">
-                    <div class="contact-icon">⚡</div>
-                    <h3>GitHub</h3>
-                    <a href="https://github.com/gauravbalpande" target="_blank">github.com/gauravbalpande</a>
-                </div>
-                <div class="contact-card fade-in">
-                    <div class="contact-icon">📍</div>
-                    <h3>Location</h3>
-                    <p>Umred, Nagpur</p>
-                </div>
-            </div>
+        <div class="skill-card">
+          <div class="path">~/skills/iac</div>
+          <h3>Infrastructure as Code</h3>
+          <div class="pill-row">
+            <span class="pill">Terraform modules</span><span class="pill">Networking</span><span class="pill">EC2</span>
+            <span class="pill">IAM</span><span class="pill">ECR</span><span class="pill">Route 53</span>
+            <span class="pill">State management</span><span class="pill">Variables &amp; outputs</span>
+          </div>
         </div>
-    </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Gaurav Balpande | DevOps Engineer</p>
-            <p style="margin-top: 0.5rem; opacity: 0.8;">Built with ❤️ and hosted on GitHub Pages</p>
+        <div class="skill-card">
+          <div class="path">~/skills/backend</div>
+          <h3>Backend Engineering</h3>
+          <div class="pill-row">
+            <span class="pill">Go</span><span class="pill">Gin</span><span class="pill">JWT Auth</span>
+            <span class="pill">PostgreSQL</span><span class="pill">Redis</span><span class="pill">REST APIs</span>
+            <span class="pill">Middleware</span><span class="pill">Clean Architecture</span>
+          </div>
         </div>
-    </footer>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+        <div class="skill-card">
+          <div class="path">~/skills/mlops</div>
+          <h3>MLOps</h3>
+          <div class="pill-row">
+            <span class="pill">MLflow</span><span class="pill">DVC</span><span class="pill">DagsHub</span>
+            <span class="pill">Prometheus</span><span class="pill">Grafana</span><span class="pill">Model versioning</span>
+            <span class="pill">Experiment tracking</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="path">~/skills/ai-llmops</div>
+          <h3>AI / LLMOps</h3>
+          <div class="pill-row">
+            <span class="pill">Hugging Face</span><span class="pill">RAG</span>
+            <span class="pill">Containerized AI workloads</span><span class="pill">AI orchestration</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section id="experience" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">~/experience</div>
+        <h2>Experience</h2>
+      </div>
+      <div class="exp-card">
+        <div class="exp-head">
+          <div>
+            <h3>AWS Cloud Intern</h3>
+            <div class="company">F13 Technologies · Delhi</div>
+          </div>
+          <div class="dates">Dec 2025 — Mar 2026</div>
+        </div>
+        <ul class="exp-list">
+          <li>Shipped <strong>3 serverless applications with AWS SAM</strong>, cutting manual environment setup by ~3 hours/week.</li>
+          <li>Built <strong>Lambda + API Gateway</strong> REST endpoints that handle concurrent requests and scale on demand.</li>
+          <li>Designed <strong>DynamoDB</strong> data models and access patterns to improve query performance and reduce read/write overhead.</li>
+          <li>Implemented <strong>JWT-based Cognito authentication</strong> for secure, role-aware API access.</li>
+          <li>Wired up <strong>Rekognition + SNS</strong> for automated image analysis and real-time, event-driven notifications.</li>
+          <li>Deployed frontends on <strong>AWS Amplify</strong> with secure uploads via S3 presigned URLs.</li>
+        </ul>
+        <div class="metric-row">
+          <span class="metric">⚡ 35% faster cold starts</span>
+          <span class="metric">💰 20% lower AWS compute cost (YoY)</span>
+          <span class="metric">📈 5x peak traffic @ 99.9% uptime</span>
+          <span class="metric">✅ 85% test coverage</span>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">AWS Lambda</span><span class="tech-tag">API Gateway</span>
+          <span class="tech-tag">DynamoDB</span><span class="tech-tag">S3</span>
+          <span class="tech-tag">SNS</span><span class="tech-tag">Cognito</span>
+          <span class="tech-tag">Rekognition</span><span class="tech-tag">SAM</span>
+          <span class="tech-tag">Python</span><span class="tech-tag">JavaScript</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">~/projects</div>
+        <h2>Projects</h2>
+        <p>From a production-style Kubernetes platform to MLOps pipelines and Android apps.</p>
+      </div>
+
+      <!-- FLAGSHIP: AUCTIONXI -->
+      <div class="flagship">
+        <div class="flagship-top">
+          <h3>AuctionXI — Cloud-Native Football Auction Platform</h3>
+          <span class="tag-flagship">Flagship Project</span>
+        </div>
+        <p class="desc">
+          A cloud-native football auction platform inspired by fantasy sports and football
+          management games. Users join live player auctions with real-time WebSocket bidding,
+          build a squad under a budget cap, and get ranked on team composition and performance —
+          all backed by a Go API and deployed through a full GitOps pipeline on Kubernetes.
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature-item">Real-time player auction with live WebSocket bidding</div>
+          <div class="feature-item">JWT authentication &amp; authorization</div>
+          <div class="feature-item">Squad management &amp; formation analysis</div>
+          <div class="feature-item">Team scoring &amp; ranking engine</div>
+          <div class="feature-item">PostgreSQL persistence, Redis caching &amp; sessions</div>
+          <div class="feature-item">RESTful API architecture</div>
+        </div>
+
+        <div class="pipeline-label">$ deployment pipeline — code to production</div>
+        <div class="pipeline">
+          <div class="pstage">
+            <div class="num">01 · CODE</div>
+            <h4>Go + Gin API</h4>
+            <p>Backend service with clean architecture, pushed to GitHub.</p>
+          </div>
+          <div class="pconnector"></div>
+          <div class="pstage">
+            <div class="num">02 · CI</div>
+            <h4>GitHub Actions</h4>
+            <p>Build, test, and package the application on every push.</p>
+          </div>
+          <div class="pconnector"></div>
+          <div class="pstage">
+            <div class="num">03 · REGISTRY</div>
+            <h4>Docker → ECR</h4>
+            <p>Image built and pushed to Amazon ECR.</p>
+          </div>
+          <div class="pconnector"></div>
+          <div class="pstage">
+            <div class="num">04 · GITOPS</div>
+            <h4>ArgoCD Sync</h4>
+            <p>Detects the new image and syncs the cluster state automatically.</p>
+          </div>
+          <div class="pconnector"></div>
+          <div class="pstage">
+            <div class="num">05 · CLUSTER</div>
+            <h4>K3s on EC2</h4>
+            <p>Terraform-provisioned EC2 running a K3s Kubernetes cluster.</p>
+          </div>
+          <div class="pconnector"></div>
+          <div class="pstage">
+            <div class="num">06 · EDGE</div>
+            <h4>NGINX + TLS</h4>
+            <p>NGINX Ingress with Cert-Manager &amp; Let's Encrypt, serving a custom domain.</p>
+          </div>
+        </div>
+
+        <div class="tech-tags">
+          <span class="tech-tag">Go</span><span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Redis</span><span class="tech-tag">Docker</span>
+          <span class="tech-tag">Kubernetes (K3s)</span><span class="tech-tag">Terraform</span>
+          <span class="tech-tag">ArgoCD</span><span class="tech-tag">GitHub Actions</span>
+          <span class="tech-tag">AWS EC2</span><span class="tech-tag">AWS ECR</span>
+          <span class="tech-tag">NGINX Ingress</span><span class="tech-tag">Cert-Manager</span>
+        </div>
+
+        <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+          <a href="https://auctionxi.online/" target="_blank" class="btn btn-primary">
+            Live demo — auctionxi.online ↗
+          </a>
+          <a href="https://github.com/gauravbalpande/DrayAuction" target="_blank" class="project-link" style="border-top:none; padding-top:0; margin-top:0;">
+            View source on GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- OTHER PROJECTS -->
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-card-top">
+            <h4>End-to-End MLOps Fraud Detection</h4>
+            <span class="badge">Production-ready</span>
+          </div>
+          <p class="desc">
+            A production-grade MLOps pipeline using DVC for data/model versioning, MLflow +
+            DagsHub for experiment tracking, and LIME for explainability. Containerized and
+            deployed on AWS EKS with Prometheus + Grafana, automated via GitHub Actions.
+          </p>
+          <div class="metric-row">
+            <span class="metric">⏱ ~5–7 hrs/week saved</span>
+            <span class="metric">🚀 ~40–50% faster train-to-deploy</span>
+            <span class="metric">📡 ~95–97% uptime</span>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">DVC</span><span class="tech-tag">MLflow</span>
+            <span class="tech-tag">DagsHub</span><span class="tech-tag">AWS EKS</span>
+            <span class="tech-tag">Prometheus</span><span class="tech-tag">Grafana</span>
+          </div>
+          <a href="https://github.com/gauravbalpande/mlops-final" target="_blank" class="project-link">
+            View on GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-top">
+            <h4>Dockerized Deployment Pipeline</h4>
+            <span class="badge">Deployed</span>
+          </div>
+          <p class="desc">
+            Built Jenkins pipelines to containerize a Zoom-like video app, push images to
+            DockerHub/ECR, and roll out the build on AWS — standardizing Dockerization and
+            infrastructure scripts across environments.
+          </p>
+          <div class="metric-row">
+            <span class="metric">⏱ ~5–6 hrs/week saved</span>
+            <span class="metric">📉 ~40–50% less env drift</span>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">Jenkins</span><span class="tech-tag">Docker</span>
+            <span class="tech-tag">AWS ECR</span><span class="tech-tag">GitHub</span>
+          </div>
+          <a href="https://github.com/gauravbalpande/MEETLOOP-new" target="_blank" class="project-link">
+            View on GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-top">
+            <h4>BetMasterX — Cloud-Native Betting Platform</h4>
+            <span class="badge">EKS-ready</span>
+          </div>
+          <p class="desc">
+            A 3-tier app — React, FastAPI, and PostgreSQL (Supabase) — with JWT auth, RBAC, and
+            wallet transactions. Runs locally via Docker Compose and is EKS-ready through Helm
+            charts and ArgoCD (GitOps), with observability via Prometheus, Grafana, and
+            OpenTelemetry (Jaeger).
+          </p>
+          <div class="metric-row">
+            <span class="metric">🔐 ~35–40% fewer auth issues</span>
+            <span class="metric">⚙️ ~50% better consistency w/ Helm + ArgoCD</span>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">React</span><span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">PostgreSQL</span><span class="tech-tag">Helm</span>
+            <span class="tech-tag">ArgoCD</span><span class="tech-tag">OpenTelemetry</span>
+          </div>
+          <a href="https://github.com/gauravbalpande/winner-kube-final" target="_blank" class="project-link">
+            View on GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-top">
+            <h4>Android Movie Information App</h4>
+            <span class="badge">Mobile</span>
+          </div>
+          <p class="desc">
+            An Android app built in Java using a third-party REST API to surface real-time
+            movie data, with a modular architecture and local caching to cut down on
+            redundant network calls.
+          </p>
+          <div class="metric-row">
+            <span class="metric">⚡ ~25–30% faster data retrieval</span>
+            <span class="metric">📉 ~40–50% fewer API calls</span>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">Java</span><span class="tech-tag">Android Studio</span>
+            <span class="tech-tag">REST API</span><span class="tech-tag">Caching</span>
+          </div>
+          <a href="https://github.com/gauravbalpande/DrayMovie" target="_blank" class="project-link">
+            View on GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EDUCATION & CERTS ===================== -->
+  <section id="education" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">~/education</div>
+        <h2>Education &amp; certifications</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="path">degree.json</div>
+          <h3>B.Tech in Computer Science</h3>
+          <p>Shri Guru Gobind Singhji Institute of Engineering and Technology, Nanded</p>
+          <span class="yr">2022 — 2026</span>
+        </div>
+        <div class="edu-card">
+          <div class="path">certifications.json</div>
+          <h3>Microsoft Certified: Azure Fundamentals</h3>
+          <p>Microsoft</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <footer id="contact" class="contact-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">~/contact</div>
+        <h2>Get in touch</h2>
+        <p>Open to internships, full-time roles, and interesting infrastructure problems.</p>
+      </div>
+      <div class="contact-grid">
+        <a href="mailto:gauravbalpande18@gmail.com" class="contact-card">
+          <div class="label">email</div>
+          <div class="value">gauravbalpande18@gmail.com</div>
+        </a>
+        <a href="tel:+919356603720" class="contact-card">
+          <div class="label">phone</div>
+          <div class="value">+91 93566 03720</div>
+        </a>
+        <a href="https://www.linkedin.com/in/gaurav-mukunda-balpande-9b6717257" target="_blank" class="contact-card">
+          <div class="label">linkedin</div>
+          <div class="value">gaurav-mukunda-balpande</div>
+        </a>
+        <a href="https://github.com/gauravbalpande" target="_blank" class="contact-card">
+          <div class="label">github</div>
+          <div class="value">github.com/gauravbalpande</div>
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <span>$ echo "thanks for reading — let's build something."</span>
+        <span>© <span id="year"></span> Gaurav Balpande</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Terminal typing feed
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const termBody = document.getElementById('termBody');
+
+    const blocks = [
+      { cmd: 'terraform apply -auto-approve', out: ['Apply complete! Resources: 14 added, 0 changed, 0 destroyed.'] },
+      { cmd: 'argocd app sync auctionxi-prod', out: ['✓ Synced  •  Health: Healthy'] },
+      { cmd: 'kubectl get pods -n auctionxi', out: [
+          'api-7d9f8b8c-x2k4p   1/1   Running   0   2d',
+          'web-6c4a2d91-q8z1m   1/1   Running   0   2d',
+          'redis-0              1/1   Running   0   7d'
+        ] },
+      { cmd: 'kubectl get ingress -n auctionxi', out: [
+          'NAME       CLASS   HOSTS              ADDRESS        TLS',
+          'auctionxi  nginx   auctionxi.live     203.0.113.42   ✓ cert-manager'
+        ] },
+      { cmd: 'echo "ready for production 🚀"', out: ['ready for production 🚀'] }
+    ];
+
+    function appendLine(text, cls){
+      const div = document.createElement('div');
+      div.className = 'line ' + (cls || '');
+      div.textContent = text;
+      termBody.appendChild(div);
+      while (termBody.children.length > 9) {
+        termBody.removeChild(termBody.firstChild);
+      }
+      termBody.scrollTop = termBody.scrollHeight;
+      return div;
+    }
+
+    async function typeLine(text, cls, speed){
+      const div = appendLine('', cls);
+      const cursor = document.createElement('span');
+      cursor.className = 'cur';
+      div.appendChild(cursor);
+      for (let i = 0; i < text.length; i++){
+        div.textContent = text.slice(0, i + 1);
+        div.appendChild(cursor);
+        await new Promise(r => setTimeout(r, speed));
+      }
+      cursor.remove();
+      return div;
+    }
+
+    function wait(ms){ return new Promise(r => setTimeout(r, ms)); }
+
+    async function runTerminal(){
+      if (reduceMotion){
+        blocks.forEach(b => {
+          appendLine('$ ' + b.cmd, 'cmd');
+          b.out.forEach(o => appendLine(o, 'out'));
         });
+        return;
+      }
+      while (true){
+        for (const block of blocks){
+          await typeLine('$ ' + block.cmd, 'cmd', 32);
+          await wait(280);
+          for (const o of block.out){
+            appendLine(o, 'out');
+            await wait(160);
+          }
+          await wait(1100);
+        }
+        await wait(600);
+        termBody.innerHTML = '';
+      }
+    }
+    runTerminal();
 
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('nav a').forEach(a => {
-                a.style.color = 'white';
-                if (a.getAttribute('href') === `#${current}`) {
-                    a.style.color = 'var(--secondary)';
-                }
-            });
-        });
-
-        document.querySelector('footer p').innerHTML = 
-            `&copy; ${new Date().getFullYear()} Gaurav Balpande | DevOps Engineer`;
-
-        console.log('🚀 Portfolio loaded successfully!');
-        console.log('👨‍💻 Gaurav Balpande - DevOps Engineer');
-        console.log('📧 gauravbalpande18@gmail.com');
-    </script>
+    // Scroll-reveal for cards
+    const revealEls = document.querySelectorAll('.skill-card, .project-card, .exp-card, .flagship, .edu-card, .contact-card');
+    revealEls.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = 'opacity .5s ease, transform .5s ease';
+    });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html><html><head><meta charset='UTF-8'><title>Gaurav Balpande Portfolio</title></head><body><h1>Gaurav Balpande</h1><p>Cloud & DevOps Engineer | AWS | Kubernetes | Terraform | GitOps</p><p>This is the generated portfolio starter file. Replace with the expanded version as needed.</p></body></html> -->
